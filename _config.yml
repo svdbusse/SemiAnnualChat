@@ -1,2 +1,2 @@
 theme: jekyll-theme-slate
-permalink: /blog/:year/:month/:day/:title
+permalink: /posts/:year/:month/:day/:title
