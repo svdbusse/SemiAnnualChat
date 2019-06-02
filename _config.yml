@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Semi Annual Chat
-tagline:
+tagline: by <a href="http://twitter.com/Svdbusse" target="_blank">@Svdbusse</a>
 email: Svdbusse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A collection of solutions, workarounds and protips from an IT Pro working in Modern Management
