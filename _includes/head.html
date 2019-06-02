@@ -33,6 +33,9 @@
     content="{{ page.summary }}">
   <meta name="og:image" content="{{ site.url }}{{ page.thumbnail }}">
 
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
 
   <title>
     {% if page.title == "Home" %}
