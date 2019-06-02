@@ -5,7 +5,7 @@ title:  "Provisioning Azure AD users into G. Suite Organization Units"
 tags: [Azure AD, G. Suite]
 thumbnail: "/SemiAnnualChat/assets/OrgUnitPath/banner.png"
 image: "/SemiAnnualChat/assets/OrgUnitPath/AttributeMapping.png"
-summary: "Use Azure AD to provision users directly into G. Suite Organization Units"
+summary: "Use Azure AD to provision users directly into G. Suite Organizational Units"
 ---
 ___
 
