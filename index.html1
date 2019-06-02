@@ -2,6 +2,7 @@
 layout: home
 title: Home
 ---
+<--
 
 <div class="posts">
   {% for post in paginator.posts %}
