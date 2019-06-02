@@ -3,7 +3,7 @@ layout: post
 date: 2019-04-18
 title:  "Provisioning Azure AD users into G. Suite Organization Units"
 tags: [Azure AD, G. Suite]
-thumbnail: "/SemiAnnualChat/assets/OrgUnitPath/thumbnail.png"
+thumbnail: "/SemiAnnualChat/assets/OrgUnitPath/banner.png"
 ---
 ___
 

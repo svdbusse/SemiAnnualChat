@@ -11,11 +11,12 @@ layout: default
   {% for post in site.posts limit:5 %}
   <div class="span4">
     <a href="{{ site.baseurl }}{{ BASE_PATH }}{{ post.url }}">
-      <h3>{{ post.title }}</h3></br>
+      <h3>{{ post.title }}</h3>
     </a>
 
     <p >{% if post.thumbnail %}
-      <img src="{{ post.thumbnail }}" style="height: 200px"/>
+      <!--<img src="{{ post.thumbnail }}" style="height: 200px";width=100%;/>-->
+      <img src="{{ post.thumbnail }}" style="max-height: 200px";width=auto;/>
       {% else %}
       <img src="/images/nothumbnail.jpg" style="height: 200px";align="center" />
       {% endif %}</p>
