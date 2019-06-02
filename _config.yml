@@ -24,8 +24,8 @@ github_username:  svdbusse
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-slate
-#remote_theme: poole/lanyon
+#theme: jekyll-theme-slate
+remote_theme: poole/lanyon
 plugins:
   - jekyll-feed
 
