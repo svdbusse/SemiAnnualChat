@@ -17,15 +17,15 @@ title: Semi Annual Chat
 email: Svdbusse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A collection of solutions, workarounds and protips from an IT Pro working in Modern Management
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://svdbusse.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: svdbusse
 github_username:  svdbusse
 
 # Build settings
 markdown: kramdown
-#theme: jekyll-theme-slate
-remote_theme: poole/lanyon
+theme: jekyll-theme-slate
+#remote_theme: poole/lanyon
 plugins:
   - jekyll-feed
 
