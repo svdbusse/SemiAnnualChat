@@ -25,6 +25,15 @@
   {% endif %}
   <!-- end of Twitter cards -->
 
+  <!-- Open Graph / Facebook -->
+  <meta name="og:type" content="website">
+  <meta name="og:url" content="{{ site.url }}">
+  <meta name="og:title" content="{{ page.title }}">
+  <meta name="og:description"
+    content="{{ page.summary }}">
+  <meta name="og:image" content="{{ site.url }}{{ page.thumbnail }}">
+
+
   <title>
     {% if page.title == "Home" %}
     {{ site.title }} &middot; {{ site.tagline }}
