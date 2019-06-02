@@ -3,7 +3,7 @@ layout: post
 date: 2019-04-18
 title:  "Provisioning Azure AD users into G. Suite Organization Units"
 tags: [Azure AD, G. Suite]
-thumbnail: "/assets/OrgUnitPath/thumbnail.png"
+thumbnail: "/SemiAnnualChat/assets/OrgUnitPath/thumbnail.png"
 ---
 ___
 
@@ -30,7 +30,7 @@ To achieve this, I'd need to configure an Attribute mapping that sets the "orgUn
 
 Initially, the orgUnitPath attribute wasn't available as a target attribute - but after a support call with the Azure AD team, it was thankfully added into the schema:
 
-![Edit Attributes](/assets/orgunitpath/EditAttribute2.png "Edit Attributes")
+![Edit Attributes](/SemiAnnualChat/assets/orgunitpath/EditAttribute2.png "Edit Attributes")
 
 ## Dynamically Provisioning Users to different OUs
 As Azure AD does not have an OU or hierarchical structure, the question was: How do I configure dynamic mappings to apply to groups of users to specify their unique OrgUnitPath - rather than just provisioning all users into a single OU by hard coding the Constant Value in the mapping.
@@ -41,7 +41,7 @@ I had two options:
 
 After reviewing how to [Write expressions for attribute mappings](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/functions-for-customizing-application-data) I identified the **SingleAppRoleAssignment** function:
 
-![Single App Role Assignment Definition](/assets/orgunitpath/SingleAppRoleAssignment.png "Single App Role Assignment Definition")
+![Single App Role Assignment Definition](/SemiAnnualChat/assets/orgunitpath/SingleAppRoleAssignment.png "Single App Role Assignment Definition")
 
 This function would allow me to create additional Azure AD App Registration Roles, that I could assign to groups of users to specify the desired orgUnitPath.
 
@@ -49,9 +49,9 @@ This function would allow me to create additional Azure AD App Registration Role
 The following shows the final expression based attribute mapping used to map App Roles to orgUnitPaths.
 
 #### Adding an Attribute
-![Edit Attributes](/assets/orgunitpath/EditAttribute3.png "Edit Attributes")
+![Edit Attributes](/SemiAnnualChat/assets/orgunitpath/EditAttribute3.png "Edit Attributes")
 #### All Attribute Mappings
-![Attribute Mappings](/assets/orgunitpath/AttributeMapping.png "Attribute Mappings")
+![Attribute Mappings](/SemiAnnualChat/assets/orgunitpath/AttributeMapping.png "Attribute Mappings")
 
 ## Adding Azure AD Application Manifest Roles
 
@@ -108,14 +108,14 @@ Setting the path for a multi level Org Unit:
 
 #### Mapping Groups to Roles
 Now that i'd created my roles with their destinations OUs hard coded into the "value", I could assign my groups of users the application, specifying the corresponding role as part of the assignment.
-![Add User Assignments](/assets/orgunitpath/AddAssignment.png "Add User Assignments")
+![Add User Assignments](/SemiAnnualChat/assets/orgunitpath/AddAssignment.png "Add User Assignments")
 
 **List of Assigned Roles:**
-![Users and Groups](/assets/orgunitpath/UsersAndGroups.png "Users and Groups")
+![Users and Groups](/SemiAnnualChat/assets/orgunitpath/UsersAndGroups.png "Users and Groups")
 
 ### Audit Logs
 As an example, in the audit log we can see a test user Jessica Jones being provisioned into the orgUnitPath "/Students", ready for G. Suite policy and configuration to be applied.
-![Audit Logs](/assets/orgunitpath/AuditLog.png "Audit Logs")
+![Audit Logs](/SemiAnnualChat/assets/orgunitpath/AuditLog.png "Audit Logs")
 
 ### A word of Warning
 This is a great solution for getting users provisioned into G. Suite and  into their _initially_ correct OU. But through rather extensive testing and going back and forth with Azure AD support, there's a major caveat that they don't mention in any of the support articles.
