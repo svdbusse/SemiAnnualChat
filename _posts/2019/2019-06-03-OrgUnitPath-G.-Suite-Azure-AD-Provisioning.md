@@ -128,7 +128,7 @@ This is a great solution for getting users provisioned into G. Suite and  into t
 All provisioning requests that are sent to G. Suite use a **POST** REST method. This is generally fine; and works perfectly for user creation. But as per the [G. Suite Admin Directory API documentation](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user) updates to existing users need to use a **PUT** REST method.
 
 ### So what does that mean?
-Any subsequent changes such as a surname name change, or a user moving between departments or business units could result in a user moving between assigned groups, and therefore needing to be moved to a different OU in G. Suite.
+Any subsequent changes such as a user moving between departments or business units could result in a user moving between assigned groups, and therefore needing to be moved to a different OU in G. Suite.
 
 The change is **sent** to G. Suite by Azure AD but **simply and unfortunately** ignored.
 
