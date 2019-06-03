@@ -1,11 +1,12 @@
----
+﻿---
 layout: post
-date: 2019-04-18
+date: 2019-06-03
 title:  "Provisioning Azure AD users into G. Suite Organizational Units"
 tags: [Azure AD, G. Suite]
 banner: "/SemiAnnualChat/assets/OrgUnitPath/banner.png"
 thumbnail: "/SemiAnnualChat/assets/OrgUnitPath/AttributeMapping.png"
 summary: "Use Azure AD to provision users directly into G. Suite Organizational Units"
+comments: true
 ---
 ___
 
@@ -16,17 +17,17 @@ As a result, the use of [Google Cloud Directory Sync](https://tools.google.com/d
 
 Easy, I thought. I'll use Azure AD's user provisioning capabilities to provision users directly from Azure AD. A great cloud to cloud integration, with no middleware dependencies.
 
-Spinning up a demo tenant, within a couple of hours I had provisioning up and running, but I needed to find a method of provisioning users into the correct Organization Unit in G. Suite, rather than into the root of the OU structure.
-
-To achieve this, I'd need to configure an Attribute mapping that sets the "orgUnitPath" user attribute in G. Suite as the account is created/updated.
-
 ## Prerequisites:
-* Azure AD Premium Plan 1 or 2
-* G. Suite (Education or Business) tenant
+* Azure AD Subscription
+* G. Suite (Education or Business) Subscription
 * User provisioning from Azure AD to G. Suite configured - for details follow this tutorial on [docs.microsoft.com](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 * Understanding of the [G. Suite Admin SDK](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users)
 
 **Note**: You will need to configure a second G. Suite Enterprise Application to configure provisioning in, this is a [known issue](https://github.com/MicrosoftDocs/azure-docs/issues/7763#issuecomment-398932730).
+
+Spinning up a demo tenant, within a couple of hours I had provisioning up and running, but I needed to find a method of provisioning users into the correct Organization Unit in G. Suite, rather than into the root of the OU structure.
+
+To achieve this, I'd need to configure an attribute mapping that sets the "orgUnitPath" user attribute in G. Suite when the account is created/updated.
 
 ## Configuring Attribute Mappings
 
@@ -45,14 +46,16 @@ After reviewing how to [Write expressions for attribute mappings](https://docs.m
 
 ![Single App Role Assignment Definition](/SemiAnnualChat/assets/OrgUnitPath/SingleAppRoleAssignment.png "Single App Role Assignment Definition")
 
-This function would allow me to create additional Azure AD App Registration Roles, that I could assign to groups of users to specify the desired orgUnitPath.
+This function would allow me to create additional Azure AD App Registration Roles by editing the Azure AD application manifest, I could then use these custom roles to assign groups of users to specify the desired destination orgUnitPath.
 
 ### Expression Attribute Mapping
 The following shows the final expression based attribute mapping used to map App Roles to orgUnitPaths.
 
-#### Adding an Attribute
+**Adding an Attribute**
 ![Edit Attributes](/SemiAnnualChat/assets/OrgUnitPath/EditAttribute3.png "Edit Attributes")
-#### All Attribute Mappings
+**All Attribute Mappings**
+
+The list of all attribute mappings from Azure AD to G. Suite
 ![Attribute Mappings](/SemiAnnualChat/assets/OrgUnitPath/AttributeMapping.png "Attribute Mappings")
 
 ## Adding Azure AD Application Manifest Roles
@@ -106,10 +109,10 @@ Setting the path for a multi level Org Unit:
 "availableToOtherTenants": false
 ```
 
-**Note:** Your value and displayname cannot contain spaces.
+***Note:** Your value and displayname cannot contain spaces.*
 
-#### Mapping Groups to Roles
-Now that i'd created my roles with their destinations OUs hard coded into the "value", I could assign my groups of users the application, specifying the corresponding role as part of the assignment.
+### Mapping Groups to Roles
+Now that I've created my roles with their corresponding OUs hard coded into the "value", I can assign my groups of users to the application, specifying the role as part of the assignment.
 ![Add User Assignments](/SemiAnnualChat/assets/OrgUnitPath/AddAssignment.png "Add User Assignments")
 
 **List of Assigned Roles:**
@@ -119,11 +122,18 @@ Now that i'd created my roles with their destinations OUs hard coded into the "v
 As an example, in the audit log we can see a test user Jessica Jones being provisioned into the orgUnitPath "/Students", ready for G. Suite policy and configuration to be applied.
 ![Audit Logs](/SemiAnnualChat/assets/OrgUnitPath/AuditLog.png "Audit Logs")
 
-### A word of Warning
+### A word of warning
 This is a great solution for getting users provisioned into G. Suite and  into their _initially_ correct OU. But through rather extensive testing and going back and forth with Azure AD support, there's a major caveat that they don't mention in any of the support articles.
 
-All provisioning requests that are sent to G. Suite use a **POST** REST method. This is generally fine; and works great for user creation. But any subsequent changes such as a surname name change, or a user moving between departments, business units which results in a change to the orgUnitPath in G. Suite is sent, but simply not honoured.
+All provisioning requests that are sent to G. Suite use a **POST** REST method. This is generally fine; and works perfectly for user creation. But as per the [G. Suite Admin Directory API documentation](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user) updates to existing users need to use a **PUT** REST method.
 
-The POST method is used by design, so it looks like we are stuck with a one time provisioning action only, and any subsequent user changes will need to be handled manually by your ops team.
+### So what does that mean?
+Any subsequent changes such as a surname name change, or a user moving between departments or business units could result in a user moving between assigned groups, and therefore needing to be moved to a different OU in G. Suite.
 
-2 steps forward, 1 step back. Hopefully this shortcoming is addressed in the near future.
+The change is **sent** to G. Suite by Azure AD but **simply and unfortunately** ignored.
+
+When querying Azure Support if the method could be changed, I was told that the POST method is used by design and will not be changed for individual applications.
+
+So it looks like we are stuck with a one way, one time provisioning and any subsequent user changes will need to be handled manually by your ops team.
+
+This is still a great solution for SMBs or for simple G. Suite OU structures. But hopefully this shortcoming is addressed in the future.
