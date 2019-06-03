@@ -6,7 +6,9 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <!-- Twitter cards -->
+  {% seo %}
+
+  <!-- Twitter cards
   <meta name="twitter:site" content="@{{ site.twitter_username }}">
   <meta name="twitter:title" content="{{ page.title }}">
 
@@ -23,15 +25,17 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="{{ site.title_thumbnail }}">
   {% endif %}
-  <!-- end of Twitter cards -->
+  end of Twitter cards-->
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook
   <meta name="og:type" content="website">
   <meta name="og:url" content="{{ site.url }}">
   <meta name="og:title" content="{{ page.title }}">
   <meta name="og:description"
     content="{{ page.summary }}">
   <meta name="og:image" content="{{ site.url }}{{ page.thumbnail }}">
+  -->
+
 
   {% if site.google_analytics and jekyll.environment == 'production' %}
   {% include analytics.html %}
