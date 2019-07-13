@@ -1,16 +1,19 @@
----
+﻿---
 layout: page
 title: About
 permalink: /about/
 ---
 
-My name is Stefan van der Busse, I'm a Senior Solutions Engineer in Christchurch, New Zealand.
-I work primarily with Microsoft technologies, which can be summarised into the following:
-* Windows
-* Azure
-* Office 365
+Hi, I'm Stefan van der Busse a Senior Solutions Engineer in Christchurch, New Zealand.
+I work for a Nation wide MSP, designing, implementing and supporting solutions in  Education, Corporate and Government sectors.
+
+I work primarily with Microsoft products, such as:
+
+Windows 10, Azure, Office 365, Azure AD, Intune, PowerShell, SharePoint, App-V, SCCM and Flow.
+
+I'm an ex Windows Phone (RIP) and Microsoft Band (RIP) enthusiast, and now a reluctant iPhone and Apple Watch user.
+
 
 Information on this site is provided as is, where is and without warranty. If you would like to use some of the solutions listed here, but please ensure your own
 
-Views
-
+*The views and opinions on this site are my own, and do not reflect those of my employer.*
