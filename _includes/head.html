@@ -8,17 +8,6 @@
 
   {% seo %}
 
-  <!--Twitter cards
-   <meta name="twitter:site" content="@{{ site.twitter_username }}">
-  <meta name="twitter:title" content="{{ page.title }}">
-
-  {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary }}">
-  {% else %}
-  <meta name="twitter:description" content="{{ site.description }}">
-  {% endif %}
--->
-
   <!--Twitter cards 2.0-->
   {% if page.image %}
   <meta name="twitter:card" content="summary_large_image">
@@ -28,16 +17,6 @@
   <meta name="twitter:image" content="{{ site.title_thumbnail }}">
   {% endif %}
   <!--end of Twitter cards-->
-
-  <!-- Open Graph / Facebook
-  <meta name="og:type" content="website">
-  <meta name="og:url" content="{{ site.url }}">
-  <meta name="og:title" content="{{ page.title }}">
-  <meta name="og:description"
-    content="{{ page.summary }}">
-  <meta name="og:image" content="{{ site.url }}{{ page.thumbnail }}">
-  -->
-
 
   {% if site.google_analytics and jekyll.environment == 'production' %}
   {% include analytics.html %}
@@ -58,12 +37,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
   <!-- Icons-->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+  <link rel="icons8-clouds-96.png" sizes="96x96"
     href="{{ site.baseurl }}/public/icons8-clouds-96.png">
   <link rel="shortcut icon" href="{{ site.baseurl }}/public/icons8-clouds-96.png">
 
-
-
-  <!-- RSS -->
+  <!-- RSS
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+-->
 </head>
