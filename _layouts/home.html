@@ -15,8 +15,7 @@ layout: default
     </a>
 
     <p >{% if post.banner %}
-      <!--<img src="{{ post.banner }}" style="height: 200px";width=100%;/>-->
-      <img src="{{ post.banner }}" style="max-height: 200px";width=auto;/>
+      <a href="{{ site.baseurl }}{{ BASE_PATH }}{{ post.url }}"><img src="{{ post.banner }}" style="max-height: 200px";width=auto;/></a>
       {% else %}
       <img src="/assets/nobanner.jpg" style="max-height: 200px";width=auto; />
       {% endif %}</p>
