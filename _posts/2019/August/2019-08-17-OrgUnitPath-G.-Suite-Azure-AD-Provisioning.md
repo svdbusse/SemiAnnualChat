@@ -4,7 +4,7 @@ date: 2019-08-17
 title:  "Provisioning Azure AD users into G. Suite Organizational Units"
 tags: [Azure AD, G. Suite]
 banner: "/SemiAnnualChat/assets/OrgUnitPath/banner.png"
-image: "/SemiAnnualChat/assets/OrgUnitPath/TwitterBanner.png"
+image: "/assets/OrgUnitPath/TwitterBanner.png"
 description: "Use Azure AD to provision users directly into G. Suite Organizational Units"
 author: "Stefan van der Busse"
 comments: true
