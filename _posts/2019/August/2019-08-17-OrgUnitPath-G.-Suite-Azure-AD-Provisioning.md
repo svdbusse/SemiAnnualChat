@@ -34,7 +34,7 @@ To achieve this, I'd need to configure an attribute mapping that sets the "orgUn
 
 Initially, the orgUnitPath attribute wasn't available as a target attribute - but after a support call with the Azure AD team, it was thankfully added into the schema:
 
-![Edit Attributes](/assets/OrgUnitPath/EditAttribute2.png "Edit Attributes")
+![Edit Attributes](/SemiAnnualChat/assets/OrgUnitPath/EditAttribute2.png "Edit Attributes")
 
 ## Dynamically Provisioning Users to different OUs
 As Azure AD does not have an OU or hierarchical structure, the question was: How do I configure dynamic mappings to apply to groups of users to specify their unique OrgUnitPath - rather than just provisioning all users into a single OU by hard coding the Constant Value in the mapping.
@@ -53,10 +53,13 @@ This function would allow me to create additional Azure AD App Registration Role
 The following shows the final expression based attribute mapping used to map App Roles to orgUnitPaths.
 
 **Adding an Attribute**
+
 ![Edit Attributes](/SemiAnnualChat/assets/OrgUnitPath/EditAttribute3.png "Edit Attributes")
+
 **All Attribute Mappings**
 
 The list of all attribute mappings from Azure AD to G. Suite
+
 ![Attribute Mappings](/SemiAnnualChat/assets/OrgUnitPath/AttributeMapping.png "Attribute Mappings")
 
 ## Adding Azure AD Application Manifest Roles
