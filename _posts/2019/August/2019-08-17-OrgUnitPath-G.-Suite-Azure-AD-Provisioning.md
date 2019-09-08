@@ -34,7 +34,7 @@ To achieve this, I'd need to configure an attribute mapping that sets the "orgUn
 
 Initially, the orgUnitPath attribute wasn't available as a target attribute - but after a support call with the Azure AD team, it was thankfully added into the schema:
 
-![Edit Attributes](/SemiAnnualChat/assets/OrgUnitPath/EditAttribute2.png "Edit Attributes")
+![Edit Attributes](/assets/OrgUnitPath/EditAttribute2.png "Edit Attributes")
 
 ## Dynamically Provisioning Users to different OUs
 As Azure AD does not have an OU or hierarchical structure, the question was: How do I configure dynamic mappings to apply to groups of users to specify their unique OrgUnitPath - rather than just provisioning all users into a single OU by hard coding the Constant Value in the mapping.
