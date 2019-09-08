@@ -8,7 +8,7 @@ layout: default
 
 
 <div class="row" >
-  {% for post in site.posts reversed limit:5 %}
+  {% for post in site.posts limit:5 %}
   <div class="span4">
     <a href="{{ site.baseurl }}{{ BASE_PATH }}{{ post.url }}">
       <h3>{{ post.title }}</h3>
