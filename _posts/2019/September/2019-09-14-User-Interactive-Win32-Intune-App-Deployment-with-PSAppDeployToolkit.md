@@ -4,7 +4,7 @@ date: 2019-09-14
 title:  "User Interactive Win32 Intune App Deployment with PSAppDeployToolkit"
 tags: [Intune, Application Packaging ,Azure ,Windows 10 ,EMS ,PSAppDeployToolkit]
 banner: "/SemiAnnualChat/assets/UserDrivenWin32/win32banner.png"
-image: "assets/UserDrivenWin32/Win32Twitter.png"
+image: "/assets/UserDrivenWin32/Win32Twitter.png"
 description: "Use Intune Win32 Application deployment and the PowerShell App Deployment Toolkit to provide a user friendly application deployment for required applications"
 author: "Stefan van der Busse"
 comments: true
